@@ -60,6 +60,10 @@ cv, burst_rate = compute_batch_stats(
 
 Wiener increments are generated outside the solver, which makes random seeds and common-random-number comparisons explicit. Model perturbations such as `g_m` are passed as function arguments rather than mutable globals.
 
+## Burst-statistics convention
+
+For analysis, a trial with fewer than three detected bursts is assigned a burst rate of zero and an undefined CV (`NaN`) by design. The low-noise experiment additionally applies a minimum-rate filter when reporting fitted rates. These thresholds are conventions of the original analysis, which is preserved here.
+
 ## Included experiments
 
 ```text
@@ -83,6 +87,10 @@ The experiment scripts save generated arrays and figures under `data/`, which is
 This public repository is a compact, reusable subset of the research code rather than a complete reproduction archive. It focuses on the numerical mechanisms needed to inspect the model and rerun the included analyses.
 
 The accompanying study reports model-specific coherence resonance, restricted Arrhenius-like scaling in a deep subthreshold regime, noise-accelerated firing under strong state-dependent noise and qualitative differences from clipped additive-Gaussian controls. See [arXiv:2605.04088](https://arxiv.org/abs/2605.04088) for the complete analysis and interpretation.
+
+## License
+
+Code is available under the [MIT License](LICENSE).
 
 ## Author
 
